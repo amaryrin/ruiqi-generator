@@ -63,7 +63,7 @@ body {
 .hbi-title-block h1 {
     margin: 0;
     font-family: Georgia, "Times New Roman", serif;
-    font-size: 190px;
+    font-size: clamp(72px, 14vw, 190px);
     line-height: 0.85;
     letter-spacing: 0.04em;
 }
