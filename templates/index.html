@@ -1,0 +1,501 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ruiqi Generator</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+</head>
+
+<body>
+    <!-- Start / Search Page -->
+    <main id="menuScreen" class="hbi-screen">
+        <section class="hbi-document">
+            <header class="hbi-header">
+                <img
+                    class="hbi-logo"
+                    src="{{ url_for('static', filename='assets/Harvard-Education.png') }}"
+                    alt="Harvard logo"
+                >
+
+                <div class="hbi-title-block">
+                    <h1>HBI</h1>
+
+                    <div class="hbi-right-title">
+                        <p class="hbi-small-title">HARVARD BUREAU OF<br>INVESTIGATION</p>
+                        <p class="hbi-status">TOP<br>SECRET</p>
+                    </div>
+                </div>
+            </header>
+
+            <section class="hbi-search-section">
+                <label for="agentSearch" class="agent-label">AGENT'S NAME</label>
+
+                <div class="hbi-search-row">
+                    <input id="agentSearch" type="text" value="Ruiqi Lai" readonly>
+                    <button id="startBtn" type="button">SEARCH</button>
+                </div>
+            </section>
+
+            <section class="hbi-meta">
+                <p>FILE TYPE: MULTI-IDENTITY AGENT PROFILE</p>
+                <p>ACCESS STATUS: AUTHORIZED VIEWER</p>
+                <p>SEARCH FIELD LOCKED: SUBJECT CONFIRMED</p>
+            </section>
+        </section>
+    </main>
+
+    <!-- Agent Profile Page -->
+    <main id="builderScreen" class="agent-profile-screen hidden">
+        <header class="agent-header">
+            <div class="agent-header-left">
+                <img
+                    class="agent-header-logo"
+                    src="{{ url_for('static', filename='assets/Harvard-Education.png') }}"
+                    alt="Harvard logo"
+                >
+
+                <div>
+                    <h1>HBI</h1>
+                    <p>HARVARD BUREAU OF INVESTIGATION</p>
+                </div>
+            </div>
+
+            <button id="backBtn" class="exit-button" type="button">EXIT</button>
+        </header>
+
+        <section class="agent-file">
+            <div class="agent-info">
+                <h2>AGENT: Ruiqi Lai</h2>
+
+                <p><strong>REGISTRATION DATE:</strong> January 26, 2000</p>
+                <p><strong>CURRENT LOCATION:</strong> Harvard Graduate School of Education, Cambridge, Boston</p>
+                <p><strong>CONTACT INFO:</strong> TEL: +1 (617) 201-1728 / EMAIL: amaryrin@gmail.com / OLD WEBSITE: <a href="https://lairuiqi.cargo.site" target="_blank" class="cargo site">ENTER</a></p>
+            </div>
+
+            <div class="agent-photo-placeholder">
+                <img
+                    class="agent-main-avatar"
+                    src="{{ url_for('static', filename='assets/main-avatar.png') }}"
+                    alt="Main Ruiqi avatar"
+                >
+            </div>
+        </section>
+
+        <section class="identity-section">
+            <div class="section-title-row">
+                <h2>IDENTITY DISGUISE</h2>
+                <p>(Click to view in detail)</p>
+            </div>
+
+            <p class="identity-description">
+             This section documents the different professional identities Ruiqi has operated through across design, education, research, and creative work.
+            </p>
+
+            <div class="identity-grid">
+                <button id="designerIdentityBtn" class="identity-card" type="button">
+                    <div
+                        class="identity-image-placeholder"
+                        style="--avatar-image: url('{{ url_for('static', filename='assets/designer.png') }}');"
+                    ></div>
+                    <span># Designer</span>
+                </button>
+
+                <button id="researcherIdentityBtn" class="identity-card" type="button">
+                    <div
+                        class="identity-image-placeholder"
+                        style="--avatar-image: url('{{ url_for('static', filename='assets/researcher.png') }}');"
+                    ></div>
+                    <span># Researcher</span>
+                </button>
+
+                <button id="artistIdentityBtn" class="identity-card" type="button">
+                    <div
+                        class="identity-image-placeholder"
+                        style="--avatar-image: url('{{ url_for('static', filename='assets/artist.png') }}');"
+                    ></div>
+                    <span># Artist</span>
+                </button>
+
+                <button id="hiddenIdentityBtn" class="identity-card" type="button">
+                    <div
+                        class="identity-image-placeholder"
+                        style="--avatar-image: url('{{ url_for('static', filename='assets/hidden.png') }}');"
+                    ></div>
+                    <span># Hidden Identity</span>
+                </button>
+            </div>
+        </section>
+
+        <section class="agent-chat-section">
+            <div>
+                <h2>NEED TO TALK TO THE AGENT?</h2>
+                <p>For special cases, undiscovered identities, or portfolio guidance, contact the hidden online version of Ruiqi.</p>
+            </div>
+
+            <button id="chatOpenBtn" class="agent-chat-button" type="button">
+                CHAT WITH AI RUIQI
+            </button>
+        </section>
+    </main>
+
+    <!-- Hidden Identity Password Screen -->
+    <main id="passwordScreen" class="password-screen hidden">
+        <button id="passwordBackBtn" class="top-left-button" type="button">←</button>
+
+        <section class="password-card">
+            <h1>ENTER THE PASSCODE</h1>
+
+            <div class="password-row">
+                <input
+                    id="passwordInput"
+                    type="password"
+                    placeholder="Type passcode"
+                    autocomplete="off"
+                >
+                <button id="passwordSubmitBtn" type="button">ENTER</button>
+            </div>
+
+            <p id="passwordWarning" class="password-warning"></p>
+        </section>
+    </main>
+
+    <!-- Hidden Identity Unlocked Screen -->
+    <main id="hiddenUnlockedScreen" class="hidden-unlocked-screen hidden">
+        <section class="hidden-unlocked-card">
+            <h1>Check out my INSTAGRAM: anelfrin</h1>
+            <button id="hiddenBackBtn" class="folder-button" type="button">GO BACK</button>
+        </section>
+    </main>
+
+    <!-- Researcher Identity Page -->
+    <main id="researcherScreen" class="researcher-screen hidden">
+        <button id="researcherBackBtn" class="chat-back-button" type="button">←</button>
+
+        <section class="researcher-hero">
+            <div class="researcher-intro">
+                <h1>RESEARCHER.</h1>
+                <p>
+                    This identity focuses on Ruiqi’s work across child-centered AI, learning technologies,
+                    research prototypes, and human-centered educational tools.
+                </p>
+            </div>
+
+            <div class="researcher-avatar-box">
+                <img
+                    class="researcher-avatar"
+                    src="{{ url_for('static', filename='assets/researcher.png') }}"
+                    alt="Researcher Ruiqi avatar"
+                >
+            </div>
+        </section>
+
+        <section class="research-demo-section">
+            <div class="research-section-title">
+                <h2>WORK DEMO</h2>
+                <p>(Check to filter out the category)</p>
+            </div>
+
+            <div class="research-filters">
+                <label><input class="research-filter" type="checkbox" value="ai"> AI</label>
+                <label><input class="research-filter" type="checkbox" value="early-kids"> Early Kids Education</label>
+                <label><input class="research-filter" type="checkbox" value="social-media"> Social Media</label>
+                <label><input class="research-filter" type="checkbox" value="mental-health"> Mental Health</label>
+            </div>
+
+            <div class="research-entries">
+                <article class="resume-entry" data-tags="ai early-kids">
+                    <div class="resume-entry-header">
+                        <div>
+                            <h3>Voice-Based AI Research Toy — Harvard Child-Centered AI Lab</h3>
+                        </div>
+
+                        <div class="resume-entry-meta">
+                            <p>Nov 2025 – Present</p>
+                            <p>Cambridge, MA</p>
+                        </div>
+                    </div>
+
+                    <div class="entry-tags">
+                        <span># AI</span>
+                        <span># Early Kids Education</span>
+                    </div>
+
+                    <ul>
+                        <li>Designed a research plush toy for studies of young children’s interactions with conversational AI in family settings.</li>
+                        <li>Led character development, soft-goods construction, internal structural design, 3D modeling, and 3D printing.</li>
+                        <li>Created safe, testable prototypes with embedded electronics for child-centered AI research.</li>
+                    </ul>
+                </article>
+
+                <article class="resume-entry" data-tags="ai early-kids">
+                    <div class="resume-entry-header">
+                        <div>
+                            <h3>AI Phonics Learning Platform — Harvard Child-Centered AI Lab</h3>
+                           
+                        </div>
+
+                        <div class="resume-entry-meta">
+                            <p>Nov 2025 – Present</p>
+                            <p>Cambridge, MA</p>
+                        </div>
+                    </div>
+
+                    <div class="entry-tags">
+                        <span># AI</span>
+                        <span># Early Kids Education</span>
+                    </div>
+
+                    <ul>
+                        <li>Led end-to-end UI/UX design for an interactive literacy learning prototype.</li>
+                        <li>Translated phonics curriculum into a child-centered platform through visual design, interaction flow, narrative framing, and Figma prototyping.</li>
+                        <li>Collaborated with curriculum experts and software engineers to turn instructional content into an engaging, research-ready learning experience.</li>
+                    </ul>
+                </article>
+
+                <article class="resume-entry" data-tags="ai social-media mental-health">
+                    <div class="resume-entry-header">
+                        <div>
+                            <h3>The Role of Search Tone (TikTok Research) - Personal Research</h3>
+                          
+                        </div>
+
+                        <div class="resume-entry-meta">
+                            <p>Nov–Dec 2024</p>
+                            <p>Guangzhou, GD, China</p>
+                        </div>
+                    </div>
+
+                    <div class="entry-tags">
+                        <span># AI</span>
+                        <span># Social Media</span>
+                        <span># Mental Health</span>
+                    </div>
+
+                    <ul>
+                        <li>Conducted a self-initiated research project examining how positive, neutral, and negative search-tone variation influenced TikTok/Douyin recommendation patterns and adolescents’ emotional well-being risks.</li>
+                        <li>Designed a controlled sock-puppet account study using three matched personas with standardized baseline behavior and tone-shifted search queries.</li>
+                        <li>Collected and coded 480 recommended videos for pairwise statistical comparison across conditions.</li>
+                        <li>Translated findings into a human-centered intervention concept linking at-risk users to AI-based support.</li>
+                    </ul>
+                </article>
+            </div>
+
+            <p id="noResearchResults" class="no-results hidden">No matching research files found.</p>
+        </section>
+    </main>
+
+    <!-- Designer Identity Page -->
+    <main id="designerScreen" class="designer-screen hidden">
+        <button id="designerBackBtn" class="chat-back-button" type="button">←</button>
+
+        <section class="designer-hero">
+            <div class="designer-intro">
+                <h1>DESIGNER.</h1>
+                <p>
+                    This identity focuses on Ruiqi’s work across learning experience design,
+                    product thinking, UI/UX systems, interactive prototypes, and playful educational tools.
+                </p>
+            </div>
+
+            <div class="designer-avatar-box">
+                <img
+                    class="designer-avatar"
+                    src="{{ url_for('static', filename='assets/designer.png') }}"
+                    alt="Designer Ruiqi avatar"
+                >
+            </div>
+        </section>
+
+        <section class="designer-demo-section">
+            <div class="designer-section-title">
+                <h2>WORK DEMO</h2>
+                <p>(Check to filter out the category)</p>
+            </div>
+
+            <div class="designer-filters">
+                <label><input class="designer-filter" type="checkbox" value="uiux-design"> UI/UX Design</label>
+                <label><input class="designer-filter" type="checkbox" value="product-design"> Product Design</label>
+                <label><input class="designer-filter" type="checkbox" value="game-design"> Game Design</label>
+                <label><input class="designer-filter" type="checkbox" value="learning-design"> Learning Design</label>
+            </div>
+
+            <div class="designer-entries">
+                <article class="portfolio-entry designer-entry" data-tags="uiux-design product-design learning-design">
+                    <div class="portfolio-entry-header">
+                        <div>
+                            <h3>Teacher Reflection Lab — Collaborative Teacher Learning Design</h3>
+                            <p>
+                                Designed an interactive teacher-learning platform that supports educators’
+                                reflection through identity-based profiles, classroom scenario simulations,
+                                feedback reports, and growth tracking.
+                            </p>
+                        </div>
+
+                        <div class="portfolio-entry-meta">
+                            <p>Mar–Apr 2026</p>
+                            <p>Cambridge, MA</p>
+                        </div>
+                    </div>
+                    
+                    
+                    <div class="entry-tags">
+                        <span># UI/UX Design</span>
+                        <span># Product Design</span>
+                        <span># Learning Design</span>
+                    </div>
+
+                    <ul>
+                        <li>Built scenario-based learning flows to help teachers practice classroom decision-making.</li>
+                        <li>Designed reflection experiences that connect emotional confidence, classroom choices, and professional growth.</li>
+                        <li>Created a visual and interaction system for identity-based teacher profiles and scenario reports.</li>
+                    </ul>
+
+                    <video class="portfolio-demo-video" autoplay muted loop playsinline>
+                        <source src="{{ url_for('static', filename='assets/teacher-reflection-lab.mp4') }}" type="video/mp4">
+                    </video>
+                </article>
+
+                <article class="portfolio-entry designer-entry" data-tags="uiux-design product-design learning-design">
+                    <div class="portfolio-entry-header">
+                        <div>
+                            <h3>Classroom Objects — Interactive Learning Experience Prototype</h3>
+                            <p>
+                                A classroom-based design exploration that helps users choose a subject focus
+                                and generate learning activity suggestions through interactive classroom objects.
+                            </p>
+                        </div>
+
+                        <div class="portfolio-entry-meta">
+                            <p>2025–2026</p>
+                            <p>Cambridge, MA</p>
+                        </div>
+                    </div>
+
+                    
+                    <div class="entry-tags">
+                        <span># UI/UX Design</span>
+                        <span># Product Design</span>
+                        <span># Learning Design</span>
+                    </div>
+
+                    <ul>
+                        <li>Designed a subject-filtered interaction flow for classroom learning activities.</li>
+                        <li>Explored how everyday classroom objects can become prompts for Math, Science, Literacy, SEL, and Creative Expression.</li>
+                        <li>Built a clean UI prototype focused on playful exploration, choice, and learning-context awareness.</li>
+                    </ul>
+
+                    <video class="portfolio-demo-video" autoplay muted loop playsinline>
+                        <source src="{{ url_for('static', filename='assets/classroom-objects.mp4') }}" type="video/mp4">
+                    </video>
+                </article>
+
+                <article class="portfolio-entry designer-entry" data-tags="uiux-design product-design game-design">
+                    <div class="portfolio-entry-header">
+                        <div>
+                            <h3>Other Projects — Learning Experience, Product, and UI/UX Design</h3>
+                            <p>
+                                Additional portfolio projects include training reflection tools, STEM learning toys,
+                                interactive simulations, AI-supported learning prototypes, games, and physical products.
+                            </p>
+                        </div>
+
+                        <div class="portfolio-entry-meta">
+                            <p>2021–2024</p>
+                            <p>Global</p>
+                        </div>
+                    </div>
+
+                    <div class="entry-tags">
+                        <span># UI/UX Design</span>
+                        <span># Product Design</span>
+                        <span># Game Design</span>
+                    </div>
+
+                    <ul>
+                        <li>Explore older design, industrial design, product, and interaction projects through Ruiqi’s original portfolio site.</li>
+                    </ul>
+
+                    <a
+                        class="old-portfolio-link"
+                        href="https://lairuiqi.cargo.site"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                    >
+                        OPEN OLD PORTFOLIO →
+                    </a>
+                </article>
+            </div>
+        </section>
+    </main>
+
+    <!-- Artist Identity Page -->
+    <main id="artistScreen" class="artist-screen hidden">
+        <button id="artistBackBtn" class="chat-back-button" type="button">←</button>
+
+        <section class="artist-hero">
+            <div class="artist-intro">
+                <h1>ARTIST.</h1>
+                <p>
+                    Ruiqi is pretty lazy and has not moved all of her artwork here yet.
+                    For artworks, illustration, visual experiments, and older creative projects,
+                    please go to her original website.
+                </p>
+
+                <a
+                    class="old-portfolio-link"
+                    href="https://lairuiqi.cargo.site"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                >
+                    OPEN ART PORTFOLIO →
+                </a>
+            </div>
+
+            <div class="artist-avatar-box">
+                <img
+                    class="artist-avatar"
+                    src="{{ url_for('static', filename='assets/artist.png') }}"
+                    alt="Artist Ruiqi avatar"
+                >
+            </div>
+        </section>
+    </main>
+
+    <!-- Chat Screen -->
+    <main id="chatScreen" class="chat-screen hidden">
+        <button id="chatBackBtn" class="chat-back-button" type="button">←</button>
+
+        <section class="ai-profile-panel">
+            <img
+                class="ai-avatar"
+                src="{{ url_for('static', filename='assets/ai-ruiqi.png') }}"
+                alt="AI Ruiqi avatar"
+            >
+
+            <h1>AI RUIQI</h1>
+            <p>at your service.</p>
+        </section>
+
+        <section class="chat-panel">
+
+            <div id="chatMessages" class="chat-messages">
+                <div class="message ai">
+                    Hi, I’m AI Ruiqi. Tell me what you’re interested in, and I’ll help you locate the right identity file or project evidence.
+                </div>
+            </div>
+
+            <form id="chatForm" class="chat-input-area">
+                <input
+                    id="chatInput"
+                    type="text"
+                    placeholder="Ask about design, education, AI, research..."
+                    autocomplete="off"
+                >
+                <button type="submit">SEND</button>
+            </form>
+        </section>
+    </main>
+    <script src="{{ url_for('static', filename='script.js') }}"></script>
+</body>
+</html>
